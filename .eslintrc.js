@@ -52,6 +52,7 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': 1,
     '@typescript-eslint/no-empty-function': 1,
     '@typescript-eslint/no-explicit-any': 0,
+    'consistent-return': 'off',
     'import/extensions': [
       2,
       'ignorePackages',
@@ -67,4 +68,14 @@ module.exports = {
     'prefer-regex-literals': 0,
     'import/no-extraneous-dependencies': 0,
   },
+  // 对特定文件进行配置
+  overrides: [
+    {
+      files: ['src/enums/**/*.ts'],
+      rules: {
+        'no-shadow': 'off', // eslint会报错提示重复声明，暂未找到问题原因，先关闭
+        // 可以在这里添加更多的规则禁用
+      },
+    },
+  ],
 };

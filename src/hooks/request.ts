@@ -1,6 +1,6 @@
 import { ref, UnwrapRef } from 'vue';
 import { AxiosResponse } from 'axios';
-import { HttpResponse } from '@/utils/interceptor';
+import type { HttpResponse } from '@/models/request';
 import useLoading from './loading';
 
 // use to fetch list

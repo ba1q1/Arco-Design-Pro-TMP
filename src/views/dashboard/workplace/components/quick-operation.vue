@@ -31,5 +31,3 @@
     { text: 'workplace.contentPutIn', icon: 'icon-fire' },
   ];
 </script>
-
-<style scoped lang="less"></style>

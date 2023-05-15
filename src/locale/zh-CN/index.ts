@@ -3,7 +3,7 @@ import localeLogin from '@/views/login/locale/zh-CN';
 
 import localeWorkplace from '@/views/dashboard/workplace/locale/zh-CN';
 
-import localeSettings from './zh-CN/settings';
+import localeSettings from './settings';
 
 export default {
   'menu.dashboard': '仪表盘',

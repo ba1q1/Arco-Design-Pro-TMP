@@ -67,9 +67,6 @@
       font-size: 20px;
     }
   }
-</style>
-
-<style lang="less" scoped>
   // responsive
   @media (max-width: @screen-lg) {
     .container {

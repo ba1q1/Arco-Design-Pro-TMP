@@ -65,7 +65,7 @@
 
 <script lang="ts" setup>
   import { PropType } from 'vue';
-  import { MessageRecord, MessageListType } from '@/api/message';
+  import { MessageRecord, MessageListType } from '@/api/modules/message';
 
   const props = defineProps({
     renderList: {
@@ -96,45 +96,57 @@
       min-height: 86px;
       border-bottom: 1px solid rgb(var(--gray-3));
     }
+
     .arco-list-item-extra {
       position: absolute;
       right: 20px;
     }
+
     .arco-list-item-meta-content {
       flex: 1;
     }
+
     .item-wrap {
       cursor: pointer;
     }
+
     .time-text {
-      font-size: 12px;
       color: rgb(var(--gray-6));
+      font-size: 12px;
     }
+
     .arco-empty {
       display: none;
     }
+
     .arco-list-footer {
-      padding: 0;
       height: 50px;
+      padding: 0;
       line-height: 50px;
       border-top: none;
+
       .arco-space-item {
         width: 100%;
         border-right: 1px solid rgb(var(--gray-3));
+
         &:last-child {
           border-right: none;
         }
       }
+
       .add-border-top {
         border-top: 1px solid rgb(var(--gray-3));
       }
     }
+
     .footer-wrap {
       text-align: center;
     }
+
     .arco-typography {
       margin-bottom: 0;
     }
+
     .add-border {
       border-top: 1px solid rgb(var(--gray-3));
     }

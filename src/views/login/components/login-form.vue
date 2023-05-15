@@ -59,7 +59,7 @@
   import { useStorage } from '@vueuse/core';
   import { useUserStore } from '@/store';
   import useLoading from '@/hooks/loading';
-  import type { LoginData } from '@/api/user';
+  import type { LoginData } from '@/api/modules/user';
 
   const router = useRouter();
   const { t } = useI18n();

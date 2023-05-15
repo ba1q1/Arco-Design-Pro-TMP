@@ -24,7 +24,7 @@
 <style scoped lang="less">
   .banner {
     width: 100%;
-    padding: 20px 20px 0 20px;
+    padding: 20px 20px 0;
     background-color: var(--color-bg-2);
     border-radius: 4px 4px 0 0;
   }
