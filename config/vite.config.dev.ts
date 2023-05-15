@@ -1,3 +1,4 @@
+/// <reference types="vitest" />
 import { mergeConfig } from 'vite';
 import eslint from 'vite-plugin-eslint';
 import baseConfig from './vite.config.base';
