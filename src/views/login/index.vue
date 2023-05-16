@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="my-container">
     <div class="logo">
       <img
         alt="logo"
@@ -8,7 +8,7 @@
       <div class="logo-text">Arco Design Pro</div>
     </div>
     <LoginBanner />
-    <div class="content">
+    <div class="relative flex flex-1 justify-center items-center pb-[40px]">
       <div class="content-inner">
         <LoginForm />
       </div>
@@ -26,7 +26,7 @@
 </script>
 
 <style lang="less" scoped>
-  .container {
+  .my-container {
     display: flex;
     height: 100vh;
 

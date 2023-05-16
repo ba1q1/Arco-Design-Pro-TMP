@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="my-container">
     <div class="left-side">
       <div class="panel">
         <Banner />
@@ -57,7 +57,7 @@
 </script>
 
 <style lang="less" scoped>
-  .container {
+  .my-container {
     display: flex;
     padding: 16px 20px;
     padding-bottom: 0;

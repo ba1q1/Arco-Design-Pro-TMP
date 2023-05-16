@@ -29,10 +29,10 @@ async function bootstrap() {
   app.use(ArcoVue, {});
   app.use(ArcoVueIcon);
   app.component('SvgIcon', SvgIcon);
-  
+
   app.use(router);
   app.use(directive);
-  
+
   app.mount('#app');
 }
 
