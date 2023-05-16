@@ -35,3 +35,5 @@ export interface GeneralChart {
   xAxis: string[];
   data: Array<{ name: string; value: number[] }>;
 }
+
+declare type Recordable<T = any> = Record<string, T>;

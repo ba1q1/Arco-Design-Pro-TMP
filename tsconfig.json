@@ -5,7 +5,12 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "src/components.d.ts",
-    "auto-imports.d.ts"
+    "auto-imports.d.ts",
+    "types/**/*.d.ts",
+    "types/**/*.ts",
+    "build/**/*.ts",
+    "build/**/*.d.ts",
+    "mock/**/*.ts",
   ], // TS解析路径配置
   "exclude": [
     "node_modules"

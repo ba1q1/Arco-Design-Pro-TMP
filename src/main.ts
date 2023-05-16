@@ -12,16 +12,15 @@ import App from './App.vue';
 // 样式通过 arco-plugin 插件导入。详见目录文件 config/plugin/arcoStyleImport.ts
 // https://arco.design/docs/designlab/use-theme-package
 import '@/assets/style/global.less';
-import '@/api/http/interceptor';
 
 const app = createApp(App);
 
 app.use(ArcoVue, {});
 app.use(ArcoVueIcon);
 
+app.use(i18n);
 app.use(router);
 app.use(store);
-app.use(i18n);
 app.use(globalComponents);
 app.use(directive);
 

@@ -1,7 +1,9 @@
 import { defineStore } from 'pinia';
-import { login as userLogin, logout as userLogout, getUserInfo, LoginData } from '@/api/modules/user';
+import { login as userLogin, logout as userLogout, getUserInfo } from '@/api/modules/user';
 import { setToken, clearToken } from '@/utils/auth';
 import { removeRouteListener } from '@/utils/route-listener';
+
+import type { LoginData } from '@/models/user';
 import { UserState } from './types';
 import useAppStore from '../app';
 

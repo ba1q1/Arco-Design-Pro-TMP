@@ -1,21 +1,21 @@
-import axios from 'axios';
+import MSR from '@/api/http/index';
 import { LoginUrl, LogoutUrl, GetUserInfoUrl, GetMenuListUrl } from '@/api/requrls/user';
 import type { RouteRecordNormalized } from 'vue-router';
-import type { UserState } from '@/store/modules/user/types';
 import type { LoginData, LoginRes } from '@/models/user';
+import type { UserState } from '@/store/modules/user/types';
 
 export function login(data: LoginData) {
-  return axios.post<LoginRes>(LoginUrl, data);
+  return MSR.post<LoginRes>({ url: LoginUrl, data });
 }
 
 export function logout() {
-  return axios.post<LoginRes>(LogoutUrl);
+  return MSR.post<LoginRes>({ url: LogoutUrl });
 }
 
 export function getUserInfo() {
-  return axios.post<UserState>(GetUserInfoUrl);
+  return MSR.post<UserState>({ url: GetUserInfoUrl });
 }
 
 export function getMenuList() {
-  return axios.post<RouteRecordNormalized[]>(GetMenuListUrl);
+  return MSR.post<RouteRecordNormalized[]>({ url: GetMenuListUrl });
 }
