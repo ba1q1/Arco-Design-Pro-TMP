@@ -174,7 +174,8 @@
   const fetchData = async () => {
     setLoading(true);
     try {
-      const { data: chartData } = await queryContentData();
+      const chartData = await queryContentData();
+
       chartData.forEach((el: ContentDataRecord, idx: number) => {
         xAxis.value.push(el.x);
         chartsData.value.push(el.y);

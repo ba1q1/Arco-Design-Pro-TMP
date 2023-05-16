@@ -4,7 +4,7 @@ import ArcoVueIcon from '@arco-design/web-vue/es/icon';
 import globalComponents from '@/components';
 import router from './router';
 import store from './store';
-import i18n from './locale';
+import { setupI18n } from './locale';
 import directive from './directive';
 import './mock';
 import App from './App.vue';
@@ -13,15 +13,21 @@ import App from './App.vue';
 // https://arco.design/docs/designlab/use-theme-package
 import '@/assets/style/global.less';
 
-const app = createApp(App);
+async function bootstrap() {
+  const app = createApp(App);
 
-app.use(ArcoVue, {});
-app.use(ArcoVueIcon);
+  app.use(store);
+  app.use(globalComponents);
+  // 注册国际化，需要异步阻塞，确保语言包加载完毕
+  await setupI18n(app);
 
-app.use(i18n);
-app.use(router);
-app.use(store);
-app.use(globalComponents);
-app.use(directive);
+  app.use(ArcoVue, {});
+  app.use(ArcoVueIcon);
 
-app.mount('#app');
+  app.use(router);
+  app.use(directive);
+
+  app.mount('#app');
+}
+
+bootstrap();

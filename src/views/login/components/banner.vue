@@ -16,7 +16,7 @@
 
 <script lang="ts" setup>
   import { computed } from 'vue';
-  import { useI18n } from 'vue-i18n';
+  import { useI18n } from '@/hooks/useI18n';
   import bannerImage from '@/assets/images/login-banner.png';
 
   const { t } = useI18n();

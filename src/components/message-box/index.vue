@@ -21,7 +21,7 @@
 
 <script lang="ts" setup>
   import { ref, reactive, toRefs, computed } from 'vue';
-  import { useI18n } from 'vue-i18n';
+  import { useI18n } from '@/hooks/useI18n';
   import { queryMessageList, setMessageStatus, MessageRecord, MessageListType } from '@/api/modules/message';
   import useLoading from '@/hooks/loading';
   import List from './list.vue';
@@ -59,7 +59,7 @@
   async function fetchSourceData() {
     setLoading(true);
     try {
-      const { data } = await queryMessageList();
+      const data = await queryMessageList();
       messageData.messageList = data;
     } catch (err) {
       // you can report use errorHandler or other

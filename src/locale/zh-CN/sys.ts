@@ -1,6 +1,7 @@
 export default {
   // 消息提醒相关
   'message.errorTip': '错误提示',
+  'message.logoutSuccess': '登出成功',
   // API相关
   'api.apiTimeoutMessage': '接口请求超时,请刷新页面重试!',
   'api.apiRequestFailed': '请求出错，请稍候重试',
