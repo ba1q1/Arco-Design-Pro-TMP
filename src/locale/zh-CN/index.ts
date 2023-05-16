@@ -4,6 +4,7 @@ import localeLogin from '@/views/login/locale/zh-CN';
 import localeWorkplace from '@/views/dashboard/workplace/locale/zh-CN';
 
 import localeSettings from './settings';
+import sys from './sys';
 
 export default {
   'menu.dashboard': '仪表盘',
@@ -21,6 +22,7 @@ export default {
   'menu.faq': '常见问题',
   'navbar.docs': '文档中心',
   'navbar.action.locale': '切换为中文',
+  ...sys,
   ...localeSettings,
   ...localeMessageBox,
   ...localeLogin,

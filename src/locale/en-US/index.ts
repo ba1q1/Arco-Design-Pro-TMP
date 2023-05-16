@@ -4,6 +4,7 @@ import localeLogin from '@/views/login/locale/en-US';
 import localeWorkplace from '@/views/dashboard/workplace/locale/en-US';
 
 import localeSettings from './settings';
+import sys from './sys';
 
 export default {
   'menu.dashboard': 'Dashboard',
@@ -21,6 +22,7 @@ export default {
   'menu.faq': 'FAQ',
   'navbar.docs': 'Docs',
   'navbar.action.locale': 'Switch to English',
+  ...sys,
   ...localeSettings,
   ...localeMessageBox,
   ...localeLogin,
