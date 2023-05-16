@@ -24,13 +24,6 @@ export class MSAxios {
     this.setupInterceptors();
   }
 
-  /**
-   * @description:  创建axios实例
-   */
-  private createAxios(config: CreateAxiosOptions): void {
-    this.axiosInstance = axios.create(config);
-  }
-
   private getTransform() {
     const { transform } = this.options;
     return transform;
@@ -148,7 +141,7 @@ export class MSAxios {
 
     const opt = { ...requestOptions, ...options };
 
-    const { beforeRequestHook } = transform || {};
+    const { beforeRequestHook, transformRequestHook } = transform || {};
     // 请求之前处理config
     if (beforeRequestHook && isFunction(beforeRequestHook)) {
       conf = beforeRequestHook(conf, opt);
@@ -160,6 +153,15 @@ export class MSAxios {
         .request<any, AxiosResponse<Result>>(conf)
         .then((res: AxiosResponse<Result>) => {
           // 请求成功后的处理
+          if (transformRequestHook && isFunction(transformRequestHook)) {
+            try {
+              const ret = transformRequestHook(res, opt);
+              resolve(ret);
+            } catch (err) {
+              reject(err || new Error('request error!'));
+            }
+            return;
+          }
           resolve(res as unknown as Promise<T>);
         })
         .catch((e: Error | AxiosError) => {

@@ -1,5 +1,5 @@
 import { Message, Modal } from '@arco-design/web-vue';
-import { useI18n } from 'vue-i18n';
+import { useI18n } from '@/hooks/useI18n';
 import useUser from '@/store/modules/user';
 
 import type { ErrorMessageMode } from '#/axios';

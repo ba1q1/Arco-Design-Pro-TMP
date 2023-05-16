@@ -5,13 +5,13 @@ import { RequestEnum, ContentTypeEnum, ResultEnum } from '@/enums/httpEnum';
 import { isString } from '@/utils/is';
 import { getToken } from '@/utils/auth';
 import { setObjToUrlParams, deepMerge } from '@/utils';
-import { useI18n } from 'vue-i18n';
+import { useI18n } from '@/hooks/useI18n';
 import { joinTimestamp } from './helper';
 
 import type { AxiosResponse } from 'axios';
 import type { AxiosTransform, CreateAxiosOptions } from './axiosTransform';
 import type { Recordable } from '#/global';
-import { RequestOptions, Result } from '#/axios';
+import type { RequestOptions, Result } from '#/axios';
 
 /**
  * @description: 数据处理，方便区分多种处理方式
@@ -123,7 +123,7 @@ const transform: AxiosTransform = {
    * @description: 响应拦截器处理
    */
   responseInterceptors: (res: AxiosResponse<any>) => {
-    return res.data ? res.data : res;
+    return res;
   },
 
   /**
