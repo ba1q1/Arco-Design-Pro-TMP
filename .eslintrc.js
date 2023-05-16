@@ -67,6 +67,9 @@ module.exports = {
     'no-param-reassign': 0,
     'prefer-regex-literals': 0,
     'import/no-extraneous-dependencies': 0,
+    'import/no-cycle': 'off',
+    'import/order': 'off',
+    'class-methods-use-this': 'off',
   },
   // 对特定文件进行配置
   overrides: [

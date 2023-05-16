@@ -22,8 +22,8 @@
   import useLoading from '@/hooks/loading';
   import { queryContentData, ContentDataRecord } from '@/api/modules/dashboard';
   import useChartOption from '@/hooks/chart-option';
-  import { ToolTipFormatterParams } from '@/types/echarts';
-  import { AnyObject } from '@/types/global';
+  import { ToolTipFormatterParams } from '#/echarts';
+  import { AnyObject } from '#/global';
 
   function graphicFactory(side: AnyObject) {
     return {
@@ -174,7 +174,8 @@
   const fetchData = async () => {
     setLoading(true);
     try {
-      const { data: chartData } = await queryContentData();
+      const chartData = await queryContentData();
+
       chartData.forEach((el: ContentDataRecord, idx: number) => {
         xAxis.value.push(el.x);
         chartsData.value.push(el.y);

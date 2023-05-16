@@ -25,7 +25,7 @@
 <script lang="ts" setup>
   import { computed } from 'vue';
   import { Message } from '@arco-design/web-vue';
-  import { useI18n } from 'vue-i18n';
+  import { useI18n } from '@/hooks/useI18n';
   import { useClipboard } from '@vueuse/core';
   import { useAppStore } from '@/store';
   import Block from './block.vue';
@@ -34,6 +34,7 @@
 
   const appStore = useAppStore();
   const { t } = useI18n();
+
   const { copy } = useClipboard();
   const visible = computed(() => appStore.globalSettings);
   const contentOpts = computed(() => [

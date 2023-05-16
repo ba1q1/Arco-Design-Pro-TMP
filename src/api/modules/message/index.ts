@@ -1,4 +1,4 @@
-import axios from 'axios';
+import MSR from '@/api/http/index';
 
 export interface MessageRecord {
   id: number;
@@ -14,7 +14,7 @@ export interface MessageRecord {
 export type MessageListType = MessageRecord[];
 
 export function queryMessageList() {
-  return axios.post<MessageListType>('/api/message/list');
+  return MSR.post<MessageListType>({ url: '/api/message/list' });
 }
 
 interface MessageStatus {
@@ -22,7 +22,7 @@ interface MessageStatus {
 }
 
 export function setMessageStatus(data: MessageStatus) {
-  return axios.post<MessageListType>('/api/message/read', data);
+  return MSR.post<MessageListType>({ url: '/api/message/read', data });
 }
 
 export interface ChatRecord {
@@ -34,5 +34,5 @@ export interface ChatRecord {
 }
 
 export function queryChatList() {
-  return axios.post<ChatRecord[]>('/api/chat/list');
+  return MSR.post<ChatRecord[]>({ url: '/api/chat/list' });
 }

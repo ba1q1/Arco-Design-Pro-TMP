@@ -1,3 +1,5 @@
+import { isObject } from './is';
+
 type TargetContext = '_self' | '_parent' | '_blank' | '_top';
 
 export const openWindow = (url: string, opts?: { target?: TargetContext; [key: string]: any }) => {
@@ -19,4 +21,18 @@ export const regexUrl = new RegExp(
   'i'
 );
 
-export default null;
+export function setObjToUrlParams(baseUrl: string, obj: any): string {
+  let parameters = '';
+  Object.keys(obj).forEach((key) => {
+    parameters += `${key}=${encodeURIComponent(obj[key])}&`;
+  });
+  parameters = parameters.replace(/&$/, '');
+  return /\?$/.test(baseUrl) ? baseUrl + parameters : baseUrl.replace(/\/?$/, '?') + parameters;
+}
+
+export const deepMerge = <T = any>(src: any = {}, target: any = {}): T => {
+  Object.keys(target).forEach((key) => {
+    src[key] = isObject(src[key]) ? deepMerge(src[key], target[key]) : (src[key] = target[key]);
+  });
+  return src;
+};
