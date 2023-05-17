@@ -4,7 +4,8 @@
   interface Props {
     name: string;
     color?: string;
-    size?: string;
+    width?: string;
+    height?: string;
   }
   const props = withDefaults(defineProps<Props>(), {
     name: '',
@@ -23,7 +24,7 @@
 <style scoped lang="less">
   .c-icon {
     position: relative;
-    width: v-bind(size);
-    height: v-bind(size);
+    width: v-bind(width);
+    height: v-bind(height);
   }
 </style>

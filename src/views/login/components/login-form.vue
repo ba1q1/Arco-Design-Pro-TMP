@@ -1,52 +1,58 @@
 <template>
-  <div class="login-form-wrapper">
-    <div class="login-form-title">{{ $t('login.form.title') }}</div>
-    <div class="login-form-sub-title">{{ $t('login.form.title') }}</div>
-    <div class="login-form-error-msg">{{ errorMessage }}</div>
-    <a-form ref="loginForm" :model="userInfo" class="login-form" layout="vertical" @submit="handleSubmit">
-      <a-form-item
-        field="username"
-        :rules="[{ required: true, message: $t('login.form.userName.errMsg') }]"
-        :validate-trigger="['change', 'blur']"
-        hide-label
-      >
-        <a-input v-model="userInfo.username" :placeholder="$t('login.form.userName.placeholder')">
-          <template #prefix>
-            <icon-user />
-          </template>
-        </a-input>
-      </a-form-item>
-      <a-form-item
-        field="password"
-        :rules="[{ required: true, message: $t('login.form.password.errMsg') }]"
-        :validate-trigger="['change', 'blur']"
-        hide-label
-      >
-        <a-input-password v-model="userInfo.password" :placeholder="$t('login.form.password.placeholder')" allow-clear>
-          <template #prefix>
-            <icon-lock />
-          </template>
-        </a-input-password>
-      </a-form-item>
-      <a-space :size="16" direction="vertical">
-        <div class="login-form-password-actions">
-          <a-checkbox
-            checked="rememberPassword"
-            :model-value="loginConfig.rememberPassword"
-            @change="setRememberPassword as any"
+  <div class="login-form">
+    <div class="title">
+      <div class="mt-40 flex justify-center">
+        <svg-icon :width="'290px'" :height="'60px'" :name="'login-logo'" />
+      </div>
+      <div class="title-0 flex justify-center">
+        <span class="title-welcome">{{ $t('login.form.title') }}</span>
+      </div>
+    </div>
+    <div class="form mt-20">
+      <a-form ref="formRef" :model="userInfo" @submit="handleSubmit">
+        <a-form-item field="radio" hide-label>
+          <a-radio-group v-model="userInfo.radio">
+            <a-radio value="LDAP">LDAP</a-radio>
+            <a-radio value="normal">普通登陆</a-radio>
+            <a-radio value="OIDC 90">OIDC 90</a-radio>
+          </a-radio-group>
+        </a-form-item>
+        <a-form-item
+          field="username"
+          :rules="[{ required: true, message: $t('login.form.userName.errMsg') }]"
+          :validate-trigger="['change', 'blur']"
+          hide-label
+        >
+          <a-input v-model="userInfo.username" :placeholder="$t('login.form.userName.placeholder')" class="rounded-3xl">
+            <template #prefix>
+              <icon-user />
+            </template>
+          </a-input>
+        </a-form-item>
+        <a-form-item
+          field="password"
+          :rules="[{ required: true, message: $t('login.form.password.errMsg') }]"
+          :validate-trigger="['change', 'blur']"
+          hide-label
+        >
+          <a-input-password
+            v-model="userInfo.password"
+            :placeholder="$t('login.form.password.placeholder')"
+            allow-clear
+            class="rounded-3xl"
           >
-            {{ $t('login.form.rememberPassword') }}
-          </a-checkbox>
-          <a-link>{{ $t('login.form.forgetPassword') }}</a-link>
+            <template #prefix>
+              <icon-lock />
+            </template>
+          </a-input-password>
+        </a-form-item>
+        <div class="mt-4">
+          <a-button class="rounded-3xl" type="primary" html-type="submit" long :loading="loading">
+            {{ $t('login.form.login') }}
+          </a-button>
         </div>
-        <a-button type="primary" html-type="submit" long :loading="loading">
-          {{ $t('login.form.login') }}
-        </a-button>
-        <a-button type="text" long class="login-form-register-btn">
-          {{ $t('login.form.register') }}
-        </a-button>
-      </a-space>
-    </a-form>
+      </a-form>
+    </div>
   </div>
 </template>
 
@@ -72,9 +78,11 @@
     username: 'admin', // 演示默认值
     password: 'admin', // demo default value
   });
+
   const userInfo = reactive({
-    username: loginConfig.value.username,
-    password: loginConfig.value.password,
+    radio: 'normal',
+    username: '',
+    password: '',
   });
 
   const handleSubmit = async ({
@@ -110,43 +118,14 @@
       }
     }
   };
-  const setRememberPassword = (value: boolean) => {
-    loginConfig.value.rememberPassword = value;
-  };
 </script>
 
 <style lang="less" scoped>
   .login-form {
-    &-wrapper {
-      width: 320px;
-    }
+    margin-left: 10px;
 
-    &-title {
-      color: var(--color-text-1);
-      font-weight: 500;
-      font-size: 24px;
-      line-height: 32px;
-    }
-
-    &-sub-title {
-      color: var(--color-text-3);
-      font-size: 16px;
-      line-height: 24px;
-    }
-
-    &-error-msg {
-      height: 32px;
-      color: rgb(var(--red-6));
-      line-height: 32px;
-    }
-
-    &-password-actions {
-      display: flex;
-      justify-content: space-between;
-    }
-
-    &-register-btn {
-      color: var(--color-text-3) !important;
+    .title-welcome {
+      color: #783887;
     }
   }
 </style>
