@@ -2,8 +2,9 @@
   <div class="navbar">
     <div class="left-side">
       <a-space>
-        <svg-icon :size="'43px'" :name="'logo'" />
-        <a-typography-title :style="{ margin: 0, fontSize: '18px' }" :heading="5"> Arco Pro </a-typography-title>
+        <svg-icon :width="'43px'" :height="'33px'" :name="'logo'" />
+        <a-divider direction="vertical" />
+        <ProjcetSelection />
         <icon-menu-fold
           v-if="!topMenu && appStore.device === 'mobile'"
           style="font-size: 22px; cursor: pointer"
@@ -12,7 +13,7 @@
       </a-space>
     </div>
     <div class="center-side">
-      <Menu v-if="topMenu" />
+      <Menu v-if="topMenu"></Menu>
     </div>
     <ul class="right-side">
       <li>
@@ -152,6 +153,7 @@
   import useUser from '@/hooks/user';
   import Menu from '@/components/menu/index.vue';
   import MessageBox from '../message-box/index.vue';
+  import ProjcetSelection from '@/components/project-selection/index.vue';
 
   const appStore = useAppStore();
   const userStore = useUserStore();
