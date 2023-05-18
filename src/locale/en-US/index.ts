@@ -7,6 +7,8 @@ import sys from './sys';
 
 export default {
   message: {
+    'menu.component': 'component hub',
+    'menu.component.demo': 'component demo',
     'menu.dashboard': 'Dashboard',
     'menu.server.dashboard': 'Dashboard-Server',
     'menu.server.workplace': 'Workplace-Server',
