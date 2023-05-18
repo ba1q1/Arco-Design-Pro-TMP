@@ -8,6 +8,8 @@ import localeWorkplace from '@/views/dashboard/workplace/locale/zh-CN';
 
 export default {
   message: {
+    'menu.component': '组件库',
+    'menu.component.demo': '组件示例',
     'menu.dashboard': '仪表盘',
     'menu.minder': '脑图',
     'menu.server.dashboard': '仪表盘-服务端',

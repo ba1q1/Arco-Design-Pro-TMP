@@ -8,6 +8,8 @@ import localeWorkplace from '@/views/dashboard/workplace/locale/en-US';
 
 export default {
   message: {
+    'menu.component': 'component hub',
+    'menu.component.demo': 'component demo',
     'menu.dashboard': 'Dashboard',
     'menu.minder': 'Minder',
     'menu.server.dashboard': 'Dashboard-Server',

@@ -18,6 +18,9 @@ dependencies:
   '@arco-themes/vue-ms-theme':
     specifier: ^0.0.1
     version: 0.0.1(@arco-design/web-vue@2.46.0)
+  '@form-create/arco-design':
+    specifier: ^3.1.21
+    version: 3.1.21(vue@3.3.2)
   '@vueuse/core':
     specifier: ^9.13.0
     version: 9.13.0(vue@3.3.2)
@@ -939,6 +942,69 @@ packages:
       { integrity: sha512-ElyB54bJIhXQYVKjDSvCkPO1iU1tSAeVQJbllWJq1XQSmmA4dgFk8CbiBGpiOPxleE48vDogxCtmMYku4HSVLA== }
     engines: { node: ^12.22.0 || ^14.17.0 || >=16.0.0 }
     dev: true
+
+  /@form-create/arco-design@3.1.21(vue@3.3.2):
+    resolution: {integrity: sha512-3yl/B1TYqkuRGD3yDkxz8xqLRzfaHPb/REIpwTX2JX8D+tOVNHyF1imIubZ+JCQ6YnB/sn3iRKmMcFoUCaZVgg==}
+    peerDependencies:
+      vue: ^3.1.0
+    dependencies:
+      '@form-create/component-arco-checkbox': 3.1.15
+      '@form-create/component-arco-frame': 3.1.15
+      '@form-create/component-arco-group': 3.1.19
+      '@form-create/component-arco-radio': 3.1.15
+      '@form-create/component-arco-upload': 3.1.15
+      '@form-create/component-subform': 3.1.5
+      '@form-create/core': 3.1.21(vue@3.3.2)
+      '@form-create/utils': 3.1.15
+      vue: 3.3.2
+    dev: false
+
+  /@form-create/component-arco-checkbox@3.1.15:
+    resolution: {integrity: sha512-Il/Qb7YyUbsVbi+JTQjFx+Iy2tBNvZI4GpKdL4q5BtzVjTBKOuMiCNNjgXR2dXI6OpQ7qvJWlMKYOtnUQ4+1cw==}
+    dependencies:
+      '@form-create/utils': 3.1.15
+    dev: false
+
+  /@form-create/component-arco-frame@3.1.15:
+    resolution: {integrity: sha512-0pkyausU8qYi47mJdAf70JvtECN56fbRJyVBEdF7d2hXB8vVsR8U1MXAEkW5W02TrKd/sqsnUpdTcP3MqhTdjg==}
+    dependencies:
+      '@form-create/utils': 3.1.15
+    dev: false
+
+  /@form-create/component-arco-group@3.1.19:
+    resolution: {integrity: sha512-u7XKNCzBYJQTavzc6B2JWm4d29iKMV2mU9xhCGJSdhA/qMIMa3L7YndHb01eigxzLB1TbQJlQ8wrYLuWkgSZ8A==}
+    dependencies:
+      '@form-create/utils': 3.1.15
+    dev: false
+
+  /@form-create/component-arco-radio@3.1.15:
+    resolution: {integrity: sha512-zkWgyWtWE3lMKtf2+A1DzEp1CTETbr82ZjezVBTxnD1cfdNzQiw65OxRL5NfTztk87fqpkOfg4aLaTMZkhLqAQ==}
+    dependencies:
+      '@form-create/utils': 3.1.15
+    dev: false
+
+  /@form-create/component-arco-upload@3.1.15:
+    resolution: {integrity: sha512-lAzpSn4Dcs0pJBCLKhBnTzNCHpa0JqthtYNCMrt4C7jbUtrhQTtSNzc8eVHe77wGwoh8FtxXJAEq5aOLOgzbcQ==}
+    dependencies:
+      '@form-create/utils': 3.1.15
+    dev: false
+
+  /@form-create/component-subform@3.1.5:
+    resolution: {integrity: sha512-JHNEFGuwpnjGvCJ0I0GCqPL5al0qXoN4ymnRBpm+oL+6MMo5bz1kUyoqMX1MutuC96gHTqpeqc67hssi8g2mIw==}
+    dev: false
+
+  /@form-create/core@3.1.21(vue@3.3.2):
+    resolution: {integrity: sha512-wlAC/KnnjTBMOkqmyEcIVJ18rmanCOqjUwVJy8IZpaslAsObaQM6tO9/AccCrgJnw4ANp7p6pL5VUGvdXgq2Fg==}
+    peerDependencies:
+      vue: ^3.1.0
+    dependencies:
+      '@form-create/utils': 3.1.15
+      vue: 3.3.2
+    dev: false
+
+  /@form-create/utils@3.1.15:
+    resolution: {integrity: sha512-tP6Z/c2XC6OYrI8D9/XWvJc2h6apsyMFTy051sY+tCcxppqyR7dBEEXmgfWOrAr980N7k10g27kwJ9TdVn+bfw==}
+    dev: false
 
   /@humanwhocodes/config-array@0.11.8:
     resolution:

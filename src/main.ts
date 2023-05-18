@@ -1,5 +1,6 @@
 import { createApp } from 'vue';
 import ArcoVue from '@arco-design/web-vue';
+import FormCreate from '@form-create/arco-design';
 import ArcoVueIcon from '@arco-design/web-vue/es/icon';
 import globalComponents from '@/components';
 import SvgIcon from '@/components/svg-icon/index.vue';
@@ -31,6 +32,7 @@ async function bootstrap() {
 
   app.use(router);
   app.use(directive);
+  app.use(FormCreate);
 
   app.mount('#app');
 }
