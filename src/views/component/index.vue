@@ -57,9 +57,9 @@
 
 <style>
   .my-container {
-    height: 100vh;
     padding: 16px 20px;
     padding-bottom: 0;
-    background-color: #fff;
+    height: 100vh;
+    background-color: #ffffff;
   }
 </style>
