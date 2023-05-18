@@ -1,13 +1,18 @@
 ## 提交规范
+
 ### 1. 提交消息格式
+
 ```bin
 <Type>[optional Scope]: <Description>
 [optional body]
 
 [optional footer]
 ```
+
 #### Type 提交的类型
+
 > 表示提交的目的或影响的范围
+
 - feat: 新功能（A new feature）
 - fix: 修复 bug（A bug fix）
 - docs: 文档变更（Documentation changes）
@@ -20,17 +25,23 @@
 - revert: 撤销之前的提交（Revert a previous commit）
 
 #### Scope 作用域
+
 提交的作用域，表示本次提交影响的部分代码或模块，可以根据项目的需要选择性地添加。
 
 #### Description 描述
+
 简明扼要地描述本次提交的内容
 
 #### body 正文
+
 可选的详细描述，可以包含更多的信息和上下文
+
 #### footer 脚注
+
 可选的脚注，通常用于引用相关的问题编号或关闭问题。
 
 ## 示例提交消息：
+
 ```
 feat(user): add login functionality
 
@@ -39,7 +50,9 @@ feat(user): add login functionality
 
 Closes #123
 ```
+
 在这个示例中，提交类型为 feat（新功能），作用域为 user，描述了添加登录功能的内容。正文部分提供了更详细的说明，并引用了问题编号。
+
 ## 架构总览
 
 ```
@@ -93,29 +106,29 @@ Closes #123
 
 ## -状态管理模块设计
 
-Vue3状态管理方案采用的是`pinia`，API风格与`Redux`类的状态管理库类似，也是通过模块化的方式注册`模块store`，每个`store`中包含数据仓库`state`、数据包装过滤`getter`、同步/异步操作`action`。与`Vuex`相比，`pinia`提供了`compasition-API`、完整支持TS以及可扩展的`Plugin`功能。<br />整体模块划分为业务模块`modules/*`、注册入口`index`以及插件`plugins/*`。<br />首先，在`store/index.ts`中声明注册`pinia`并引入自定义的插件：
+Vue3 状态管理方案采用的是`pinia`，API 风格与`Redux`类的状态管理库类似，也是通过模块化的方式注册`模块store`，每个`store`中包含数据仓库`state`、数据包装过滤`getter`、同步/异步操作`action`。与`Vuex`相比，`pinia`提供了`compasition-API`、完整支持 TS 以及可扩展的`Plugin`功能。<br />整体模块划分为业务模块`modules/*`、注册入口`index`以及插件`plugins/*`。<br />首先，在`store/index.ts`中声明注册`pinia`并引入自定义的插件：
 
 ```typescript
-import { createPinia } from 'pinia'
-import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
-import { debouncePlugin } from './plugins'
-import useXXStore from './modules/xx'
+import { createPinia } from 'pinia';
+import piniaPluginPersistedstate from 'pinia-plugin-persistedstate';
+import { debouncePlugin } from './plugins';
+import useXXStore from './modules/xx';
 
-const pinia = createPinia()
+const pinia = createPinia();
 // 插件会在实例创建后应用，因此插件不能在pinia实例创建前使用
-pinia.use(debouncePlugin).use(piniaPluginPersistedstate)
-export { useXXStore } // 导出模块store
-export default pinia
+pinia.use(debouncePlugin).use(piniaPluginPersistedstate);
+export { useXXStore }; // 导出模块store
+export default pinia;
 ```
 
 然后，在项目入口`mian.ts`中使用：
 
 ```typescript
-import { createApp } from 'vue'
-import store from '@/store'
-import app from '@/App.vue'
+import { createApp } from 'vue';
+import store from '@/store';
+import app from '@/App.vue';
 
-createApp(app).use(store).mount('#app')
+createApp(app).use(store).mount('#app');
 ```
 
 <a name="piniaPlugins.ts"></a>
@@ -125,26 +138,26 @@ createApp(app).use(store).mount('#app')
 在此文件内编写`pinia`插件，并在注册的时候引入使用即可：
 
 ```typescript
-import { debounce, isObject } from 'lodash-es'
+import { debounce, isObject } from 'lodash-es';
 // 首先得声明插件使用到的额外属性，因为pinia的TS类型声明中，每个store只有三个原生属性state、getters、actions，若没有使用到额外属性则无需声明
 declare module 'pinia' {
   export interface DefineStoreOptionsBase<S, Store> {
-    cache?: Partial<CacheType<S, Store>> // 缓存配置
-    debounce?: Partial<Record<keyof StoreActions<Store>, number>> // 节流配置
+    cache?: Partial<CacheType<S, Store>>; // 缓存配置
+    debounce?: Partial<Record<keyof StoreActions<Store>, number>>; // 节流配置
   }
 }
 // 基于lodash的防抖函数封装，读取store中cache配置的属性，针对已配置的属性更改操作进行防抖处理
 export const debouncePlugin = ({ options, store }: PiniaPluginContext) => {
   if (options.debounce) {
     return Object.keys(options.debounce).reduce((debounceActions: debounceAction, action) => {
-      debounceActions[action] = debounce(store[action], options.debounce![action])
-      return debounceActions
-    }, {})
+      debounceActions[action] = debounce(store[action], options.debounce![action]);
+      return debounceActions;
+    }, {});
   }
-}
+};
 ```
 
-上述自定义插件，在store中如下配置：
+上述自定义插件，在 store 中如下配置：
 
 ```typescript
 export const useStore = defineStore('demo', {
@@ -157,19 +170,19 @@ export const useStore = defineStore('demo', {
     // 防抖设置
     testDebounce: 500, // 值为防抖缓冲时间
   },
-})
+});
 ```
 
 <a name="520bb47a"></a>
 
 ## -网络模块设计
 
-网络模块包含：请求url封装`api/requrls/*`、请求方法封装`api/modules/*`、请求工具封装`api/http/*`。
+网络模块包含：请求 url 封装`api/requrls/*`、请求方法封装`api/modules/*`、请求工具封装`api/http/*`。
 <a name="slaQE"></a>
 
 ### requrls
 
-将项目接口地址收敛至此文件夹下管理，避免出现一个项目多个重复接口url、方便接口地址复用且方便统一处理
+将项目接口地址收敛至此文件夹下管理，避免出现一个项目多个重复接口 url、方便接口地址复用且方便统一处理
 
 ```typescript
 export const LoginUrl = '/api/user/login';
@@ -220,7 +233,7 @@ export * from './modules/message';
 
 #### 请求工具封装
 
-基于`axios`封装请求方法，提供`form-data/json/urlencoded`格式的数据处理、自定义头部处理、响应拦截错误处理、分级提示（modal、message、none）、get请求防缓存。
+基于`axios`封装请求方法，提供`form-data/json/urlencoded`格式的数据处理、自定义头部处理、响应拦截错误处理、分级提示（modal、message、none）、get 请求防缓存。
 
 ```typescript
 // 分级错误信息提示，none为静默模式即不提示、modal为对话框提示、message为tips消息提示
@@ -258,13 +271,11 @@ export interface Result<T = any> {
   message: string;
   result: T;
 }
-
-
 ```
 
 <a name="c53518d5"></a>
 
-## -directive指令集
+## -directive 指令集
 
 指令入口`index.ts`导入并注册定义的全部指令
 
@@ -289,7 +300,7 @@ function checkPermission(el: HTMLElement, binding: DirectiveBinding) {
   const { value } = binding;
   const userStore = useUserStore();
   const { role } = userStore;
-  
+
   if (Array.isArray(value)) {
     if (value.length > 0) {
       const permissionValues = value;
@@ -317,7 +328,7 @@ export default {
 
 ## -hooks
 
-全局抽象钩子集（与Vue2的mixins类似），这里只写业务逻辑的钩子！！！通过`@vueuse/core`我们已经可以得到非常多实用的钩子函数，没必要重复造轮子，在编写钩子功能前先去[Function List](https://vueuse.org/functions.html)查看是否已经有相同功能的钩子了，没有再自己写。导出钩子`export default function useXxx`，以权限钩子示例：
+全局抽象钩子集（与 Vue2 的 mixins 类似），这里只写业务逻辑的钩子！！！通过`@vueuse/core`我们已经可以得到非常多实用的钩子函数，没必要重复造轮子，在编写钩子功能前先去[Function List](https://vueuse.org/functions.html)查看是否已经有相同功能的钩子了，没有再自己写。导出钩子`export default function useXxx`，以权限钩子示例：
 
 ```typescript
 import { RouteLocationNormalized, RouteRecordRaw } from 'vue-router';
@@ -371,7 +382,7 @@ export default function usePermission() {
 
 ## -models
 
-全局数据模型，将涉及请求、组件props、状态库的公共属性抽象为数据模型，在此文件夹内声明，保证全局数据的类型统一、方便维护。下面是请求模型示例：
+全局数据模型，将涉及请求、组件 props、状态库的公共属性抽象为数据模型，在此文件夹内声明，保证全局数据的类型统一、方便维护。下面是请求模型示例：
 
 ```typescript
 export interface HttpResponse<T = unknown> {
@@ -399,7 +410,7 @@ export interface LoginRes {
 
 ## -mock
 
-提供全局接口数据mock功能，避免因为调试而修改请求代码导致出现问题，按功能模块划分文件，通过`index.ts`暴露，示例如下：
+提供全局接口数据 mock 功能，避免因为调试而修改请求代码导致出现问题，按功能模块划分文件，通过`index.ts`暴露，示例如下：
 
 ```typescript
 import Mock from 'mockjs';
@@ -451,7 +462,6 @@ setupMock({
     });
   },
 });
-
 ```
 
 <a name="QgxDQ"></a>
@@ -476,7 +486,6 @@ export enum ResultEnum {
   TYPE = 'success',
 }
 
-
 /**
  * @description: request method
  */
@@ -486,7 +495,6 @@ export enum RequestEnum {
   PUT = 'PUT',
   DELETE = 'DELETE',
 }
-
 
 /**
  * @description:  contentTyp
@@ -535,7 +543,7 @@ export default i18n;
 
 ## -types
 
-项目级别的类型声明，与业务无关的类型声明，与`models`、`enums`不同的是，这里声明的是项目模块级别的类型，或者工具模块的类型声明，例如：`axios`的配置声明、第三方插件不提供TS支持但需要我们自定义的声明等
+项目级别的类型声明，与业务无关的类型声明，与`models`、`enums`不同的是，这里声明的是项目模块级别的类型，或者工具模块的类型声明，例如：`axios`的配置声明、第三方插件不提供 TS 支持但需要我们自定义的声明等
 <a name="hvu5O"></a>
 
 ## -utils
@@ -545,26 +553,18 @@ export default i18n;
 
 ## -views
 
-页面模块，按功能模块划分，公共模块有`login`、`base`，其中`base`模块内包含404、403页面等
+页面模块，按功能模块划分，公共模块有`login`、`base`，其中`base`模块内包含 404、403 页面等
 <a name="RwVcu"></a>
 
-## -theme主题配置- TODO
+## -theme 主题配置- TODO
 
 https://arco.design/vue/component/icon
 
 @arco-themes/vue-ms-theme
-**“CSS变量” + “Tailwind配置变量” + “基于css变量自行计算混合色覆盖arco-theme变量”**
 
+**“CSS 变量” + “Tailwind 配置变量” + “基于 css 变量自行计算混合色覆盖 arco-theme 变量”**
 
-作者：xzxldl
-链接：https://juejin.cn/post/7216217118588321853
-来源：稀土掘金
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
-
-
-
-
-## -.env.*环境变量配置
+## -.env.\*环境变量配置
 
 在`vite`中内置了环境变量配置功能，只需要在项目根目录下创建以`.env.*`开头的文件，在内部写入配置的变量即可，默认`.env`为生产环境、`.env.development`为开发环境、`.env.XXX`为自定义`XXX`环境（注意：自定义环境需要在`package.json`的项目运行命令后加入`--mode XXX`），各类环境变量配置示例如下（ ⚠️ 注意！！环境变量文件内使用注释要用`#`，不能使用`//`）:
 
@@ -582,26 +582,29 @@ VITE_APP_TITLE = 我是标题
 VITE_MYENV = 1 # 代码中通过import.meta.env.VITE_MYENV访问
 ```
 
-⚠️ 上述环境变量在代码中正常都可以用`import.meta.env.VITE_XXX`访问，但是在`vite.config.ts`配置文件中无法使用此方法访问，原因是此访问链是vite在初始化后通过读取本地`.env.XXX`文件并注入到`import.meta`中的，但是在`vite.config.ts`中vite此时还未初始化，所以无法通过上述方法访问，应通过下面方法访问：
+⚠️ 上述环境变量在代码中正常都可以用`import.meta.env.VITE_XXX`访问，但是在`vite.config.ts`配置文件中无法使用此方法访问，原因是此访问链是 vite 在初始化后通过读取本地`.env.XXX`文件并注入到`import.meta`中的，但是在`vite.config.ts`中 vite 此时还未初始化，所以无法通过上述方法访问，应通过下面方法访问：
 
 ```typescript
-import { defineConfig, loadEnv } from 'vite' // 导入loadEnv方法
-loadEnv(mode, process.cwd()).VITE_XXX // 在需要访问env里变量的地方使用此方法访问即可
+import { defineConfig, loadEnv } from 'vite'; // 导入loadEnv方法
+loadEnv(mode, process.cwd()).VITE_XXX; // 在需要访问env里变量的地方使用此方法访问即可
 ```
 
 <a name="c61428f2"></a>
 
-## -TailwindCSS配置
+## -TailwindCSS 配置
 
 ```javascript
 module.exports = {
   content: ['./index.html', './src/**/*.{html,js,vue}', './src/*.{html,js,vue}'], // 需要解析的文件路径
-  theme: { // 自定义主题配置
-    backgroundColor: { // 自定义背景色
+  theme: {
+    // 自定义主题配置
+    backgroundColor: {
+      // 自定义背景色
       menuHover: '#272D39',
       headerBg: '#191E29',
     },
-    textColor: (theme) => ({ // 自定义字体颜色
+    textColor: (theme) => ({
+      // 自定义字体颜色
       ...theme('colors'), // 这里必须解构原本有的颜色，不然会导致在页面style中使用@apply应用内部字体颜色类的时候报错找不到内部字体颜色类
       '40Gray': 'rgba(255,255,255,0.40)',
       '65Gray': 'rgba(255,255,255,0.65)',
@@ -609,12 +612,12 @@ module.exports = {
     extend: {},
   },
   plugins: [],
-}
+};
 ```
 
 <a name="c7baab5c"></a>
 
-## -TS配置-tsconfig.json
+## -TS 配置-tsconfig.json
 
 ```json
 {
@@ -626,9 +629,7 @@ module.exports = {
     "src/components.d.ts",
     "auto-imports.d.ts"
   ], // TS解析路径配置
-  "exclude": [
-    "node_modules"
-  ],
+  "exclude": ["node_modules"],
   "compilerOptions": {
     "allowJs": true, // 允许编译器编译JS，JSX文件
     "noEmit": true,
@@ -643,25 +644,19 @@ module.exports = {
     "resolveJsonModule": true,
     "isolatedModules": true,
     "esModuleInterop": true,
-    "lib": [
-      "esnext",
-      "dom"
-    ],
+    "lib": ["esnext", "dom"],
     "skipLibCheck": true, // 跳过node依赖包语法检查
     "types": [
       // "vitest/globals",
       // "vite-plugin-svg-icons/client"
     ], // 手动导入TS类型声明文件
     "baseUrl": ".",
-    "paths": { // 路径映射
-      "@/*": [
-        "./src/*"
-      ],
-      "#/*": [
-        "types/*"
-      ]
+    "paths": {
+      // 路径映射
+      "@/*": ["./src/*"],
+      "#/*": ["types/*"]
     }
-  },
+  }
 }
 ```
 
@@ -700,43 +695,47 @@ export default () => defineConfig({
 })
 ```
 
-- 使用`vite-plugin-svg-icons`插件实现自动加载svg图片，并通过封装svg组件的方式，一行代码使用svg，配置如下：
+- 使用`vite-plugin-svg-icons`插件实现自动加载 svg 图片，并通过封装 svg 组件的方式，一行代码使用 svg，配置如下：
 
 ```typescript
-import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons';
 
-export default () => defineConfig({
-  plugins: [
-    createSvgIconsPlugin({
-      // 指定svg读取的文件夹
-      iconDirs: [resolve(process.cwd(), 'src/assets/icons/svg')],
-      // 指定icon的读取名字，使用svg文件名为icon名字
-      symbolId: 'icon-[dir]-[name]',
-    })
-  ]
-})
+export default () =>
+  defineConfig({
+    plugins: [
+      createSvgIconsPlugin({
+        // 指定svg读取的文件夹
+        iconDirs: [resolve(process.cwd(), 'src/assets/icons/svg')],
+        // 指定icon的读取名字，使用svg文件名为icon名字
+        symbolId: 'icon-[dir]-[name]',
+      }),
+    ],
+  });
 ```
 
 - 使用`vite`自带插件`loadEnv`读取环境信息，可作环境判断，使用`rollup-plugin-visualizer`插件可分析打包后的文件体积，配置如下：
 
 ```typescript
-import { defineConfig, loadEnv } from 'vite'
-import { visualizer } from 'rollup-plugin-visualizer'
+import { defineConfig, loadEnv } from 'vite';
+import { visualizer } from 'rollup-plugin-visualizer';
 
-// 这里的mode参数为package.json文件配置的环境参数，使用`--mode XXX`，如"report: rimraf dist && vite build --mode analyze" 
-export default ({ mode }) => defineConfig({
-  plugins: [
-    // 这里通过--mode analyze配置为分析模式，使用visualizer插件分析方法，输出report.html分析报告
-    loadEnv(mode, process.cwd()).VITE_ANALYZE === 'Y' ? visualizer({ open: true, brotliSize: true, filename: 'report.html' }) : null,
-  ]
-})
+// 这里的mode参数为package.json文件配置的环境参数，使用`--mode XXX`，如"report: rimraf dist && vite build --mode analyze"
+export default ({ mode }) =>
+  defineConfig({
+    plugins: [
+      // 这里通过--mode analyze配置为分析模式，使用visualizer插件分析方法，输出report.html分析报告
+      loadEnv(mode, process.cwd()).VITE_ANALYZE === 'Y'
+        ? visualizer({ open: true, brotliSize: true, filename: 'report.html' })
+        : null,
+    ],
+  });
 ```
 
 <a name="0c0978d0"></a>
 
-## -vite 配置-build详解
+## -vite 配置-build 详解
 
-上面讲述了插件应用，下面讲解除了插件外，在`vite`中的build构建生产资源时，`rollupOptions`的配置：
+上面讲述了插件应用，下面讲解除了插件外，在`vite`中的 build 构建生产资源时，`rollupOptions`的配置：
 
 - `output`为输出产物配置，我们可以通过`manualChunks`去配置分包策略（与`webpack`分包机制类似），配置如下：
 
@@ -772,7 +771,6 @@ export default mergeConfig(
   },
   baseConfig
 );
-
 ```
 
 ## 单元测试
@@ -791,7 +789,7 @@ pnpm add -D vitest @vue/test-utils js-dom @vitest/coverage-c8
 
 配置
 
-根目录新建vitest.config.ts
+根目录新建 vitest.config.ts
 
 ```typescript
 import { mergeConfig } from 'vite';
@@ -806,8 +804,4 @@ export default mergeConfig(
     },
   })
 );
-
 ```
-
-
-
