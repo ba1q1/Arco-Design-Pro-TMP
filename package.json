@@ -35,6 +35,7 @@
   },
   "dependencies": {
     "@arco-design/web-vue": "^2.46.0",
+    "@arco-themes/vue-ms-theme": "^0.0.1",
     "@vueuse/core": "^9.13.0",
     "axios": "^0.24.0",
     "dayjs": "^1.11.7",

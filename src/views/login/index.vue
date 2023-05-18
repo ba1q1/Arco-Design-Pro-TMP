@@ -15,7 +15,7 @@
 
 <style lang="less" scoped>
   .my-container {
-    width: 1200px;
+    width: 1440px;
     height: 100vh;
     margin: 0 auto;
     background-color: #fff;

@@ -61,6 +61,7 @@ Closes #123
 │   │   ├── requrls						// 按业务模块划分的接口地址
 │   ├── assets								// 全局静态资源
 │   │   ├── images
+				- svg
 │   │   ├── logo.svg
 │   │   ├── style
 │   ├── components						// 组件
@@ -549,7 +550,13 @@ export default i18n;
 
 ## -theme主题配置- TODO
 
-<a name="JuE6H"></a>
+https://arco.design/vue/component/icon
+
+@arco-themes/vue-ms-theme
+
+
+
+
 
 ## -.env.*环境变量配置
 
@@ -795,7 +802,6 @@ export default mergeConfig(
 );
 
 ```
-
 
 
 
