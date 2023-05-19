@@ -20,19 +20,18 @@
 
 <style scoped lang="less">
   .my-container {
-    height: calc(100% - 40px);
     padding: 0 20px 20px;
-
+    height: calc(100% - 40px);
     :deep(.content) {
       position: relative;
       display: flex;
-      flex-direction: column;
-      align-items: center;
       justify-content: center;
+      align-items: center;
       height: 100%;
+      border-radius: 4px;
       text-align: center;
       background-color: var(--color-bg-1);
-      border-radius: 4px;
+      flex-direction: column;
     }
   }
 </style>

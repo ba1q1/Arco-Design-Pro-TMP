@@ -157,38 +157,31 @@
 
 <style scoped lang="less">
   .tag-link {
-    color: var(--color-text-2);
     text-decoration: none;
+    color: var(--color-text-2);
   }
-
   .link-activated {
     color: rgb(var(--link-6));
-
     .tag-link {
       color: rgb(var(--link-6));
     }
-
     & + .arco-tag-close-btn {
       color: rgb(var(--link-6));
     }
   }
-
   :deep(.arco-dropdown-option-content) {
     span {
       margin-left: 10px;
     }
   }
-
   .arco-dropdown-open {
     .tag-link {
       color: rgb(var(--danger-6));
     }
-
     .arco-tag-close-btn {
       color: rgb(var(--danger-6));
     }
   }
-
   .sperate-line {
     border-bottom: 1px solid var(--color-neutral-3);
   }

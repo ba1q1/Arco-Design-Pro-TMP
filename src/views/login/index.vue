@@ -17,14 +17,11 @@
   .my-container {
     width: 1440px;
     height: 100vh;
-    margin: 0 auto;
-    background-color: #fff;
-
+    background-color: #ffffff;
     .login-box {
-      height: 730px;
       margin-top: calc(50vh - 400px);
+      height: 730px;
     }
-
     .arco-divider-vertical {
       height: 52em;
     }

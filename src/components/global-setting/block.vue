@@ -57,17 +57,15 @@
   .block {
     margin-bottom: 24px;
   }
-
   .title {
     margin: 10px 0;
     padding: 0;
     font-size: 14px;
   }
-
   .switch-wrapper {
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
     height: 32px;
   }
 </style>

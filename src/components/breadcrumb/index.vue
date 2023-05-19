@@ -25,10 +25,8 @@
 <style scoped lang="less">
   .container-breadcrumb {
     margin: 16px 0;
-
     :deep(.arco-breadcrumb-item) {
       color: rgb(var(--gray-6));
-
       &:last-child {
         color: rgb(var(--gray-8));
       }

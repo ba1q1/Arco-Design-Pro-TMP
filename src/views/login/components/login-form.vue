@@ -123,7 +123,6 @@
 <style lang="less" scoped>
   .login-form {
     margin-left: 10px;
-
     .title-welcome {
       color: #783887;
     }
