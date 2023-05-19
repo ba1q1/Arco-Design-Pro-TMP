@@ -167,6 +167,7 @@ export class MSAxios {
         .catch((e: Error | AxiosError) => {
           if (axios.isAxiosError(e)) {
             // 在这可重写axios错误消息
+            // eslint-disable-next-line no-console
             console.log(e);
           }
           reject(e);

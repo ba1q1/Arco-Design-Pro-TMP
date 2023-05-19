@@ -4,7 +4,7 @@ import type { NotificationReturn } from '@arco-design/web-vue/es/notification/in
 import type { RouteRecordNormalized } from 'vue-router';
 import defaultSettings from '@/config/settings.json';
 import { getMenuList } from '@/api/modules/user';
-import { AppState } from './types';
+import { AppState, CustomTheme } from './types';
 
 const useAppStore = defineStore('app', {
   state: (): AppState => ({ ...defaultSettings }),
@@ -18,6 +18,9 @@ const useAppStore = defineStore('app', {
     },
     appAsyncMenus(state: AppState): RouteRecordNormalized[] {
       return state.serverMenu as unknown as RouteRecordNormalized[];
+    },
+    getCustomTheme(state: AppState): string {
+      return state.customTheme as string;
     },
   },
 
@@ -37,6 +40,11 @@ const useAppStore = defineStore('app', {
         this.theme = 'light';
         document.body.removeAttribute('arco-theme');
       }
+    },
+    // change custom theme
+    toggleCustomTheme(theme: CustomTheme) {
+      this.customTheme = theme;
+      document.documentElement.className = theme;
     },
     toggleDevice(device: string) {
       this.device = device;

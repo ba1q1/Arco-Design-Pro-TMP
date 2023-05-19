@@ -70,6 +70,7 @@ module.exports = {
     'import/no-cycle': 'off',
     'import/order': 'off',
     'class-methods-use-this': 'off',
+    'global-require': 0,
   },
   // 对特定文件进行配置
   overrides: [
