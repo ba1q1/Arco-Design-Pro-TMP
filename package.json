@@ -29,7 +29,7 @@
       "eslint --fix"
     ],
     "*.{less,css,scss,sass}": [
-      "stylelint --fix --custom-syntax postcss",
+      "stylelint --fix --custom-syntax postcss-less",
       "prettier --write"
     ]
   },

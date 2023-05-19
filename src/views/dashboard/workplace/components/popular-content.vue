@@ -48,7 +48,7 @@
               <template #cell="{ record }">
                 <div class="increases-cell">
                   <span>{{ record.increases }}%</span>
-                  <icon-caret-up v-if="record.increases !== 0" style="color: #f53f3f; font-size: 8px" />
+                  <icon-caret-up v-if="record.increases !== 0" style="font-size: 8px; color: #f53f3f" />
                 </div>
               </template>
             </a-table-column>
@@ -89,19 +89,15 @@
   .general-card {
     min-height: 395px;
   }
-
   :deep(.arco-table-tr) {
     height: 44px;
-
     .arco-typography {
       margin-bottom: 0;
     }
   }
-
   .increases-cell {
     display: flex;
     align-items: center;
-
     span {
       margin-right: 4px;
     }

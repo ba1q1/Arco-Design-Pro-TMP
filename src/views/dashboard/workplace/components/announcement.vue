@@ -53,19 +53,18 @@
   .item {
     display: flex;
     align-items: center;
+    margin-bottom: 4px;
     width: 100%;
     height: 24px;
-    margin-bottom: 4px;
-
     .item-content {
-      flex: 1;
-      margin-left: 4px;
       overflow: hidden;
-      color: var(--color-text-2);
+      margin-left: 4px;
       font-size: 13px;
-      white-space: nowrap;
-      text-decoration: none;
       text-overflow: ellipsis;
+      text-decoration: none;
+      white-space: nowrap;
+      color: var(--color-text-2);
+      flex: 1;
       cursor: pointer;
     }
   }

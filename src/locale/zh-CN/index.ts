@@ -1,13 +1,15 @@
 import dayjsLocale from 'dayjs/locale/zh-cn';
-import localeMessageBox from '@/components/message-box/locale/zh-CN';
-import localeLogin from '@/views/login/locale/zh-CN';
-import localeWorkplace from '@/views/dashboard/workplace/locale/zh-CN';
 import localeSettings from './settings';
 import sys from './sys';
+import localeMessageBox from '@/components/message-box/locale/zh-CN';
+import minder from '@/components/minder-editor/locale/zh-CN';
+import localeLogin from '@/views/login/locale/zh-CN';
+import localeWorkplace from '@/views/dashboard/workplace/locale/zh-CN';
 
 export default {
   message: {
     'menu.dashboard': '仪表盘',
+    'menu.minder': '脑图',
     'menu.server.dashboard': '仪表盘-服务端',
     'menu.server.workplace': '工作台-服务端',
     'menu.server.monitor': '实时监控-服务端',
@@ -27,6 +29,7 @@ export default {
     ...localeMessageBox,
     ...localeLogin,
     ...localeWorkplace,
+    ...minder,
   },
   dayjsLocale,
   dayjsLocaleName: 'zh-CN',

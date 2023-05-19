@@ -90,7 +90,6 @@
     position: fixed;
     top: 280px;
     right: 0;
-
     svg {
       font-size: 18px;
       vertical-align: -4px;

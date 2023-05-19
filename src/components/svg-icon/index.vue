@@ -10,7 +10,8 @@
   const props = withDefaults(defineProps<Props>(), {
     name: '',
     color: '#000',
-    size: '16px',
+    width: '16px',
+    height: '16px',
   });
   const iconName = computed(() => `#icon-${props.name}`);
 </script>
