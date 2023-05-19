@@ -18,3 +18,5 @@ export interface AppState {
   serverMenu: RouteRecordNormalized[];
   [key: string]: unknown;
 }
+
+export type CustomTheme = 'theme-default' | 'theme-green';

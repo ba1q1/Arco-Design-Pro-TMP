@@ -4,9 +4,32 @@ import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 import svgLoader from 'vite-svg-loader';
 import configArcoStyleImportPlugin from './plugin/arcoStyleImport';
+import themePreprocessorPlugin from '@zougt/vite-plugin-theme-preprocessor';
 
 export default defineConfig({
-  plugins: [vue(), vueJsx(), svgLoader({ svgoConfig: {} }), configArcoStyleImportPlugin()],
+  plugins: [
+    vue(),
+    vueJsx(),
+    svgLoader({ svgoConfig: {} }),
+    configArcoStyleImportPlugin(),
+    themePreprocessorPlugin({
+      less: {
+        // 此处配置自己的主题文件
+        multipleScopeVars: [
+          {
+            scopeName: 'theme-default',
+            path: resolve('src/theme/default.less'),
+          },
+          {
+            scopeName: 'theme-green',
+            path: resolve('src/theme/green.less'),
+          },
+        ],
+        defaultScopeName: 'theme-default', // 默认取 multipleScopeVars[0].scopeName
+        extract: false, // 在生产模式是否抽取独立的主题css文件
+      },
+    }),
+  ],
   resolve: {
     alias: [
       {
