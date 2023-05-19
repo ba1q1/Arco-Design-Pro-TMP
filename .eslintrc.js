@@ -70,6 +70,8 @@ module.exports = {
     'import/no-cycle': 'off',
     'import/order': 'off',
     'class-methods-use-this': 'off',
+    'no-plusplus': 'off',
+    'no-underscore-dangle': 'off',
   },
   // 对特定文件进行配置
   overrides: [
