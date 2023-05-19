@@ -10,7 +10,6 @@ import { setupI18n } from './locale';
 import directive from './directive';
 import './mock';
 import App from './App.vue';
-
 // eslint-disable-next-line import/no-unresolved
 import 'virtual:svg-icons-register';
 

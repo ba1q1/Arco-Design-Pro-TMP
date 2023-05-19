@@ -71,6 +71,8 @@ module.exports = {
     'import/order': 'off',
     'class-methods-use-this': 'off',
     'global-require': 0,
+    'no-plusplus': 'off',
+    'no-underscore-dangle': 'off',
   },
   // 对特定文件进行配置
   overrides: [

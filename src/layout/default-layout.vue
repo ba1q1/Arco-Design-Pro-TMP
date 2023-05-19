@@ -104,12 +104,10 @@
 <style scoped lang="less">
   @nav-size-height: 60px;
   @layout-max-width: 1100px;
-
   .layout {
     width: 100%;
     height: 100%;
   }
-
   .layout-navbar {
     position: fixed;
     top: 0;
@@ -118,7 +116,6 @@
     width: 100%;
     height: @nav-size-height;
   }
-
   .layout-sider {
     position: fixed;
     top: 0;
@@ -126,7 +123,6 @@
     z-index: 99;
     height: 100%;
     transition: all 0.2s cubic-bezier(0.34, 0.69, 0.1, 1);
-
     &::after {
       position: absolute;
       top: 0;
@@ -137,39 +133,33 @@
       background-color: var(--color-border);
       content: '';
     }
-
     > :deep(.arco-layout-sider-children) {
       overflow-y: hidden;
     }
   }
-
   .menu-wrapper {
-    height: 100%;
     overflow: auto;
     overflow-x: hidden;
-
+    height: 100%;
     :deep(.arco-menu) {
       ::-webkit-scrollbar {
         width: 12px;
         height: 4px;
       }
-
       ::-webkit-scrollbar-thumb {
-        background-color: var(--color-text-4);
-        background-clip: padding-box;
         border: 4px solid transparent;
         border-radius: 7px;
+        background-color: var(--color-text-4);
+        background-clip: padding-box;
       }
-
       ::-webkit-scrollbar-thumb:hover {
         background-color: var(--color-text-3);
       }
     }
   }
-
   .layout-content {
-    min-height: 100vh;
     overflow-y: hidden;
+    min-height: 100vh;
     background-color: var(--color-fill-2);
     transition: padding 0.2s cubic-bezier(0.34, 0.69, 0.1, 1);
   }

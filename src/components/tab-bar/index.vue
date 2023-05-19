@@ -52,30 +52,25 @@
   .tab-bar-container {
     position: relative;
     background-color: var(--color-bg-2);
-
     .tab-bar-box {
       display: flex;
       padding: 0 0 0 20px;
-      background-color: var(--color-bg-2);
       border-bottom: 1px solid var(--color-border);
-
+      background-color: var(--color-bg-2);
       .tab-bar-scroll {
-        flex: 1;
-        height: 32px;
         overflow: hidden;
-
+        height: 32px;
+        flex: 1;
         .tags-wrap {
-          height: 48px;
-          padding: 4px 0;
           overflow-x: auto;
+          padding: 4px 0;
+          height: 48px;
           white-space: nowrap;
-
           :deep(.arco-tag) {
             display: inline-flex;
             align-items: center;
             margin-right: 6px;
             cursor: pointer;
-
             &:first-child {
               .arco-tag-close-btn {
                 display: none;
@@ -85,7 +80,6 @@
         }
       }
     }
-
     .tag-bar-operation {
       width: 100px;
       height: 32px;
