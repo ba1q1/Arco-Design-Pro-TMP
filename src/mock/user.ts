@@ -82,6 +82,48 @@ setupMock({
             },
           ],
         },
+        {
+          path: '/minder',
+          name: 'minder',
+          redirect: '/minder/index',
+          meta: {
+            locale: 'menu.minder',
+            icon: 'icon-dashboard',
+            order: 0,
+            hideChildrenInMenu: true,
+          },
+          children: [
+            {
+              path: 'index',
+              name: 'minder',
+              meta: {
+                locale: 'menu.minder',
+                roles: ['*'],
+              },
+            },
+          ],
+        },
+        {
+          path: '/component',
+          name: 'component',
+          meta: {
+            locale: 'menu.component',
+            roles: ['*'],
+            order: 1,
+            icon: 'icon-common',
+          },
+          children: [
+            {
+              path: 'form-create',
+              name: 'form-create',
+              meta: {
+                locale: 'menu.component.demo',
+                roles: ['*'],
+                icon: 'icon-computer',
+              },
+            },
+          ],
+        },
       ];
       return successResponseWrap(menuList);
     });

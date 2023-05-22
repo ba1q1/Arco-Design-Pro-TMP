@@ -13,7 +13,7 @@ module.exports = {
     },
   ],
   customSyntax: 'postcss-less',
-  ignoreFiles: ['**/*.js', '**/*.jsx', '**/*.tsx', '**/*.ts', '**/*.json'],
+  ignoreFiles: ['**/*.js', '**/*.jsx', '**/*.tsx', '**/*.ts', '**/*.json', 'node_modules/**/*'],
   rules: {
     'indentation': 2,
     'selector-pseudo-element-no-unknown': [
