@@ -15,6 +15,7 @@ import 'virtual:svg-icons-register';
 // 样式通过 arco-plugin 插件导入。详见目录文件 config/plugin/arcoStyleImport.ts
 // https://arco.design/docs/designlab/use-theme-package
 import '@/assets/style/global.less';
+import '@/theme/default.less';
 
 async function bootstrap() {
   const app = createApp(App);
