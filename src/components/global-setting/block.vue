@@ -41,9 +41,6 @@
     if (key === 'colorWeak') {
       document.body.style.filter = value ? 'invert(80%)' : 'none';
     }
-    if (key === 'menuFromServer' && value) {
-      await appStore.fetchServerMenuConfig();
-    }
     if (key === 'topMenu') {
       appStore.updateSettings({
         menuCollapse: false,

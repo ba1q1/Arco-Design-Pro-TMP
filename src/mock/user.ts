@@ -6,8 +6,6 @@ import { isLogin } from '@/utils/auth';
 
 setupMock({
   setup() {
-    // Mock.XHR.prototype.withCredentials = true;
-
     // 用户信息
     Mock.mock(new RegExp('/api/user/info'), () => {
       if (isLogin()) {
@@ -71,7 +69,6 @@ setupMock({
           name: 'dashboard',
           meta: {
             locale: 'menu.server.dashboard',
-            requiresAuth: true,
             icon: 'icon-dashboard',
             order: 1,
           },
@@ -81,15 +78,6 @@ setupMock({
               name: 'Workplace',
               meta: {
                 locale: 'menu.server.workplace',
-                requiresAuth: true,
-              },
-            },
-            {
-              path: 'https://arco.design',
-              name: 'arcoWebsite',
-              meta: {
-                locale: 'menu.arcoWebsite',
-                requiresAuth: true,
               },
             },
           ],

@@ -8,7 +8,6 @@ const MINDER: AppRouteRecordRaw = {
   redirect: '/minder/index',
   meta: {
     locale: 'menu.minder',
-    requiresAuth: true,
     icon: 'icon-dashboard',
     order: 0,
     hideChildrenInMenu: true,
@@ -20,7 +19,6 @@ const MINDER: AppRouteRecordRaw = {
       component: () => import('@/views/minder/index.vue'),
       meta: {
         locale: 'menu.minder',
-        requiresAuth: true,
         roles: ['*'],
       },
     },

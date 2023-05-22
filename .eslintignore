@@ -1,3 +1,4 @@
 /*.json
+/src/**/*.json
 dist
 postcss.config.js

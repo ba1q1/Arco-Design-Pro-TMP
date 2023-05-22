@@ -1,9 +1,9 @@
 {
-  "name": "arco-design-pro-vue",
-  "description": "Arco Design Pro for Vue",
-  "version": "1.0.0",
+  "name": "MeterSphere",
+  "description": "MeterSphere FrontEnd",
+  "version": "3.0.0",
   "private": true,
-  "author": "ArcoDesign Team",
+  "author": "MeterSphere Team",
   "license": "MIT",
   "scripts": {
     "dev": "vite --config ./config/vite.config.dev.ts",
@@ -95,6 +95,7 @@
     "mockjs": "^1.1.0",
     "postcss": "^8.4.23",
     "postcss-html": "^1.5.0",
+    "postcss-less": "^6.0.0",
     "prettier": "^2.8.8",
     "rollup": "^2.79.1",
     "rollup-plugin-visualizer": "^5.9.0",

@@ -170,10 +170,10 @@
   const topMenu = computed(() => appStore.topMenu && appStore.menu);
   const isDark = useDark({
     selector: 'body',
-    attribute: 'arco-theme',
+    attribute: 'MS-theme',
     valueDark: 'dark',
     valueLight: 'light',
-    storageKey: 'arco-theme',
+    storageKey: 'MS-theme',
     onChanged(dark: boolean) {
       // overridden default behavior
       appStore.toggleTheme(dark);

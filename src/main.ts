@@ -1,8 +1,6 @@
 import { createApp } from 'vue';
-import ArcoVue from '@arco-design/web-vue';
 import FormCreate from '@form-create/arco-design';
 import ArcoVueIcon from '@arco-design/web-vue/es/icon';
-import globalComponents from '@/components';
 import SvgIcon from '@/components/svg-icon/index.vue';
 import router from './router';
 import store from './store';
@@ -23,11 +21,9 @@ async function bootstrap() {
   const app = createApp(App);
 
   app.use(store);
-  app.use(globalComponents);
   // 注册国际化，需要异步阻塞，确保语言包加载完毕
   await setupI18n(app);
 
-  app.use(ArcoVue, {});
   app.use(ArcoVueIcon);
   app.component('SvgIcon', SvgIcon);
 

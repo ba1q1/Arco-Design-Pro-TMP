@@ -4,6 +4,7 @@ import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 import svgLoader from 'vite-svg-loader';
 import configArcoStyleImportPlugin from './plugin/arcoStyleImport';
+import configArcoResolverPlugin from './plugin/arcoResolver';
 import themePreprocessorPlugin from '@zougt/vite-plugin-theme-preprocessor';
 
 export default defineConfig({
@@ -11,6 +12,7 @@ export default defineConfig({
     vue(),
     vueJsx(),
     svgLoader({ svgoConfig: {} }),
+    configArcoResolverPlugin(),
     configArcoStyleImportPlugin(),
     themePreprocessorPlugin({
       less: {

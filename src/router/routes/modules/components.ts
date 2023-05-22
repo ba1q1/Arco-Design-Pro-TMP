@@ -7,7 +7,6 @@ const components: AppRouteRecordRaw = {
   component: DEFAULT_LAYOUT,
   meta: {
     locale: 'menu.component',
-    requiresAuth: true,
     roles: ['*'],
     order: 1,
     icon: 'icon-common',
@@ -19,7 +18,6 @@ const components: AppRouteRecordRaw = {
       component: () => import('@/views/component/index.vue'),
       meta: {
         locale: 'menu.component.demo',
-        requiresAuth: true,
         roles: ['*'],
         icon: 'icon-computer',
       },

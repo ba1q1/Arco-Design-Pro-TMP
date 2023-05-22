@@ -5,7 +5,7 @@ import setupPermissionGuard from './permission';
 
 function setupPageGuard(router: Router) {
   router.beforeEach(async (to) => {
-    // emit route change
+    // 监听路由变化
     setRouteEmitter(to);
   });
 }
