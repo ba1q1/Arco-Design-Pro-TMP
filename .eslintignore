@@ -2,3 +2,4 @@
 /src/**/*.json
 dist
 postcss.config.js
+*.md
