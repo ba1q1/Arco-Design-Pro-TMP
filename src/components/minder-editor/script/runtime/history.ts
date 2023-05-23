@@ -55,7 +55,6 @@ export default function HistoryRuntime(this: { minder: any; hotbox: any; editTex
     const newKeys = _objectKeys(obj);
     const oldKeys = _objectKeys(mirror);
     // eslint-disable-next-line no-shadow
-    let changed = false;
     let deleted = false;
 
     for (let t = oldKeys.length - 1; t >= 0; t--) {
@@ -67,7 +66,6 @@ export default function HistoryRuntime(this: { minder: any; hotbox: any; editTex
         if (typeof oldVal === 'object' && oldVal != null && typeof newVal === 'object' && newVal != null) {
           _generate(oldVal, newVal, patches, `${path}/${escapePathComponent(key)}`);
         } else if (oldVal !== newVal) {
-          changed = true;
           patches.push({
             op: 'replace',
             path: `${path}/${escapePathComponent(key)}`,

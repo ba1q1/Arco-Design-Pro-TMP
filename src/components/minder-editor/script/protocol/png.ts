@@ -133,21 +133,19 @@ function exportPNGImage(minder: any) {
   function drawSVG() {
     const mind = window.editor.minder.exportJson();
     if (typeof window.canvg !== 'undefined') {
-      return new Promise(function (resolve) {
-        window.canvg(canvas, svgInfo.xml, {
-          ignoreMouse: true,
-          ignoreAnimation: true,
-          ignoreDimensions: true,
-          ignoreClear: true,
-          offsetX: padding,
-          offsetY: padding,
-          renderCallback() {
-            downloadImage(generateDataUrl(canvas), mind.root.data.text);
-          },
-        });
+      return window.canvg(canvas, svgInfo.xml, {
+        ignoreMouse: true,
+        ignoreAnimation: true,
+        ignoreDimensions: true,
+        ignoreClear: true,
+        offsetX: padding,
+        offsetY: padding,
+        renderCallback() {
+          downloadImage(generateDataUrl(canvas), mind.root.data.text);
+        },
       });
     }
-    return loadImage(svgDataUrl).then(function (svgImage) {
+    return loadImage(svgDataUrl).then((svgImage) => {
       drawImage(ctx, svgImage, padding, padding);
       DOMURL.revokeObjectURL(svgDataUrl);
       downloadImage(generateDataUrl(canvas), mind.root.data.text);
@@ -155,7 +153,7 @@ function exportPNGImage(minder: any) {
   }
 
   if (bgUrl) {
-    loadImage(bgUrl[1]).then(function (image) {
+    loadImage(bgUrl[1]).then((image) => {
       fillBackground(ctx, ctx?.createPattern(image as CanvasImageSource, 'repeat'), canvas);
       drawSVG();
     });

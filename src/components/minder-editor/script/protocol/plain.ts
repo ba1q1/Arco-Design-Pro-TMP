@@ -13,7 +13,7 @@ function encode(json: any, level: number) {
   local += repeat(TAB_CHAR, level);
   local += json.data.text + LINE_ENDING;
   if (json.children) {
-    json.children.forEach(function (child: any) {
+    json.children.forEach((child: any) => {
       local += encode(child, level + 1);
     });
   }

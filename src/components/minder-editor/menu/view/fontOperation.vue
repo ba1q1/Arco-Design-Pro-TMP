@@ -39,7 +39,7 @@
     </a-select>
     <span class="font-btn">
       <span
-        class="font-bold menu-btn tab-icons"
+        class="menu-btn tab-icons font-bold"
         :class="{ selected: boldSelected }"
         :disabled="disabledBold"
         @click="execCommandFontStyle('bold')"
