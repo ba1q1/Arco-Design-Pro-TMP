@@ -44,7 +44,7 @@ const useAppStore = defineStore('app', {
     // change custom theme
     toggleCustomTheme(theme: CustomTheme) {
       this.customTheme = theme;
-      document.documentElement.className = theme;
+      document.body.className = theme;
     },
     toggleDevice(device: string) {
       this.device = device;

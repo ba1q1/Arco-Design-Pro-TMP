@@ -8,9 +8,9 @@ import { vitePluginForArco } from '@arco-plugins/vite-vue';
 
 export default function configArcoStyleImportPlugin() {
   // 按需加载主题样式
-  // const arcoResolverPlugin = vitePluginForArco({
-  //   theme: '@arco-themes/vue-ms-theme',
-  // });
-  const arcoResolverPlugin = vitePluginForArco({});
+  const arcoResolverPlugin = vitePluginForArco({
+    theme: '@arco-themes/vue-ms-theme',
+  });
+  // const arcoResolverPlugin = vitePluginForArco({});
   return arcoResolverPlugin;
 }

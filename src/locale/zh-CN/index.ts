@@ -5,6 +5,7 @@ import localeMessageBox from '@/components/message-box/locale/zh-CN';
 import minder from '@/components/minder-editor/locale/zh-CN';
 import localeLogin from '@/views/login/locale/zh-CN';
 import localeWorkplace from '@/views/dashboard/workplace/locale/zh-CN';
+import localeThemebox from '@/components/theme-box/locale/zh-CN';
 
 export default {
   message: {
@@ -29,6 +30,7 @@ export default {
     ...localeLogin,
     ...localeWorkplace,
     ...minder,
+    ...localeThemebox,
   },
   dayjsLocale,
   dayjsLocaleName: 'zh-CN',

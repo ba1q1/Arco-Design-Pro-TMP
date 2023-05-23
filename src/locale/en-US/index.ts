@@ -5,6 +5,7 @@ import localeMessageBox from '@/components/message-box/locale/en-US';
 import minder from '@/components/minder-editor/locale/en-US';
 import localeLogin from '@/views/login/locale/en-US';
 import localeWorkplace from '@/views/dashboard/workplace/locale/en-US';
+import localeThemebox from '@/components/theme-box/locale/en-US';
 
 export default {
   message: {
@@ -29,6 +30,7 @@ export default {
     ...localeLogin,
     ...localeWorkplace,
     ...minder,
+    ...localeThemebox,
   },
   dayjsLocale,
   dayjsLocaleName: 'en-US',
