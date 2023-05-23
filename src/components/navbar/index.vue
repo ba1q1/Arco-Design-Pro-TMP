@@ -150,7 +150,7 @@
   import { useAppStore, useUserStore } from '@/store';
   import { LOCALE_OPTIONS } from '@/locale';
   import useLocale from '@/locale/useLocale';
-  import useUser from '@/hooks/user';
+  import useUser from '@/hooks/useUser';
   import Menu from '@/components/menu/index.vue';
   import MessageBox from '../message-box/index.vue';
   import ProjcetSelection from '@/components/project-selection/index.vue';

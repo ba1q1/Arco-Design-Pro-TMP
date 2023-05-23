@@ -39,6 +39,9 @@ dependencies:
   hotbox-minder:
     specifier: 1.0.15
     version: 1.0.15
+  jsonpath-picker-vanilla:
+    specifier: ^1.2.4
+    version: 1.2.4
   lodash:
     specifier: ^4.17.21
     version: 4.17.21
@@ -6338,6 +6341,10 @@ packages:
     resolution: {integrity: sha512-POQXvpdL69+CluYsillJ7SUhKvytYjW9vG/GKpnf+xP8UWgYEM/RaMzHHofbALDiKbbP1W8UEYmgGl39WkPZsg==}
     engines: {'0': node >= 0.2.0}
     dev: true
+
+  /jsonpath-picker-vanilla@1.2.4:
+    resolution: {integrity: sha512-AnqMTklL8T34hbLZeENOwptTfvHGrZk0HahWaHSFgrNQb1UhyGB9fdtWc5YtcmYICBxL/6cXCDx1SudXKM8Lbw==}
+    dev: false
 
   /junk@3.1.0:
     resolution: {integrity: sha512-pBxcB3LFc8QVgdggvZWyeys+hnrNWg4OcZIU/1X59k5jQdLBlCsYGRQaz234SqoRLTCgMH00fY0xRJH+F9METQ==}

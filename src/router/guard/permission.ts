@@ -1,7 +1,7 @@
 import type { Router, RouteRecordNormalized } from 'vue-router';
 import NProgress from 'nprogress'; // progress bar
 
-import usePermission from '@/hooks/permission';
+import usePermission from '@/hooks/usePermission';
 import { useAppStore } from '@/store';
 import { WHITE_LIST, NOT_FOUND } from '../constants';
 

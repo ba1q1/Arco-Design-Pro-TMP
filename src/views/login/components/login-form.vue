@@ -64,7 +64,7 @@
   import { useI18n } from '@/hooks/useI18n';
   import { useStorage } from '@vueuse/core';
   import { useUserStore } from '@/store';
-  import useLoading from '@/hooks/loading';
+  import useLoading from '@/hooks/useLoading';
   import type { LoginData } from '@/models/user';
 
   const router = useRouter();

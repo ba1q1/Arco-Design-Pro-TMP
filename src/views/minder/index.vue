@@ -9,10 +9,12 @@
     :del-confirm="delConfirm"
     @save="save"
   />
+  <!-- <JsonPicker /> -->
 </template>
 
 <script setup lang="ts">
   import MinderEditor from '@/components/minder-editor/minderEditor.vue';
+  // import JsonPicker from '@/components/jsonpath-picker/index.vue';
 
   const importJson = {
     root: {

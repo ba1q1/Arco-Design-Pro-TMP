@@ -1,6 +1,6 @@
 import { computed } from 'vue';
 import { RouteRecordRaw, RouteRecordNormalized } from 'vue-router';
-import usePermission from '@/hooks/permission';
+import usePermission from '@/hooks/usePermission';
 import appClientMenus from '@/router/app-menus';
 import { cloneDeep } from 'lodash-es';
 

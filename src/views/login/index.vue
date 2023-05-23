@@ -1,6 +1,6 @@
 <template>
   <div class="my-container">
-    <a-row class="flex flex-row login-box">
+    <a-row class="login-box flex flex-row">
       <a-col :span="11"> <loginForm /></a-col>
       <a-divider direction="vertical" />
       <a-col :span="11"> <banner /></a-col>
