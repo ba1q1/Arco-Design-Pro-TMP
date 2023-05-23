@@ -556,12 +556,10 @@ export default i18n;
 页面模块，按功能模块划分，公共模块有`login`、`base`，其中`base`模块内包含 404、403 页面等
 <a name="RwVcu"></a>
 
-## -theme 主题配置- TODO
-
-https://arco.design/vue/component/icon
-
-@arco-themes/vue-ms-theme
-
+## -theme 主题配置
+1. 去Desing Lab 创建主题 https://arco.design/themes/home
+2. 以`ms-theme-` 命名为开头
+3. 点击页面的配置主题
 **“CSS 变量” + “Tailwind 配置变量” + “基于 css 变量自行计算混合色覆盖 arco-theme 变量”**
 
 ## -.env.\*环境变量配置

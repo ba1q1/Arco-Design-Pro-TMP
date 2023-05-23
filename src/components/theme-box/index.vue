@@ -185,7 +185,7 @@
         isLoading.value = true;
         try {
           const data = await axios.get(
-            `${apiBasename}/themes/api/open/themes/list?pageSize=6&currentPage=${current}&depLibrary=@arco-design/web-vue&keyword=vue-ms-th${search}`
+            `${apiBasename}/themes/api/open/themes/list?pageSize=6&currentPage=${current}&depLibrary=@arco-design/web-vue&keyword=vue-ms-theme-${search}`
           );
 
           themeList.value = data.data.list;

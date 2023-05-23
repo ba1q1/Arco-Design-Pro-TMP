@@ -28,13 +28,6 @@
       <a-button type="primary">按钮</a-button>
       <a-switch />
     </div>
-    <div class="mt-10">
-      <span>动态主题切换</span>
-      <a-select @change="(v) => appStore.toggleCustomTheme(v as CustomTheme)">
-        <a-option value="theme-default">theme-default</a-option>
-        <a-option value="theme-green">theme-green</a-option>
-      </a-select>
-    </div>
   </div>
 </template>
 

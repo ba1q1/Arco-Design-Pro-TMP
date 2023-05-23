@@ -41,11 +41,6 @@ const useAppStore = defineStore('app', {
         document.body.removeAttribute('MS-theme');
       }
     },
-    // change custom theme
-    toggleCustomTheme(theme: CustomTheme) {
-      this.customTheme = theme;
-      document.body.className = theme;
-    },
     toggleDevice(device: string) {
       this.device = device;
     },
